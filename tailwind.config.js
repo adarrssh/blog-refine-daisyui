@@ -18,7 +18,15 @@ export default {
         ],
     },
     theme: {
-        extend: {},
+        extend: {
+            colors:{
+                statsHeadingTextColor : '#575757',
+                statsHoverbgColor : '#f1f1f1',
+                statsNumericTextColor : '#303030' ,
+                statsNumericPercentColor:'#616161',
+                editIconbgColor: '#787878'
+            }
+        },
     },
     plugins: [require("daisyui")],
 };
