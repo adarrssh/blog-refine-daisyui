@@ -24,7 +24,8 @@ export default {
                 statsHoverbgColor : '#f1f1f1',
                 statsNumericTextColor : '#303030' ,
                 statsNumericPercentColor:'#616161',
-                editIconbgColor: '#787878'
+                editIconbgColor: '#787878',
+                dashedLineColor: '#d5d5d5'
             }
         },
     },
