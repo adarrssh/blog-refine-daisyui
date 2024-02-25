@@ -17,7 +17,7 @@ export const Dashboard: React.FC = () => {
 
   return (
     <>
-      <main className=" rounded-md bg-white  p-1 flex flex-col items-center h-screen w-screen">
+      <main className="rounded-md p-1 flex flex-col items-center h-screen w-98vw overflow-x-hidden">
         <section className="flex flex-col sm:flex-col md:flex-row lg:flex-row gap-2   h-36 w-11/12 rounded-md  p-1 ">
           <div className="flex-1 flex flex-row gap-1">
             <MyStats />

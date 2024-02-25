@@ -9,7 +9,7 @@ const MyStats = () => {
           <p>Other online stores</p>
           <div className="border-b border-dashed border-dashedLineColor"></div>
         </div>
-        <div className="cursor-pointer dropdown">
+        <div className="cursor-pointer dropdown dropdown-end">
           <FontAwesomeIcon
             icon={faPen}
             color="#787878"
@@ -18,7 +18,7 @@ const MyStats = () => {
           />
           <ul
             tabIndex={0}
-            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 w-72"
+            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box  w-72"
           >
             <li>
               <a> <span className="pr-1"><FontAwesomeIcon icon={faChartLine}/></span> Average Order Value</a>
