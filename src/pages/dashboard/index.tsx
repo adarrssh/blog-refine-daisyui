@@ -19,13 +19,14 @@ export const Dashboard: React.FC = () => {
   const [showDashBoard, setShowDashBoard] = useState(true)
   return (
     <>
-      <main className="rounded-md pt-5 p-1 flex flex-col items-center  w-98vw overflow-x-hidden bg-white">
+      <main className="rounded-md pt-5 p-1 flex flex-col items-center  w-98vw overflow-hidden bg-white">
         <section className="flex flex-col sm:flex-col md:flex-row lg:flex-row gap-2  w-11/12  rounded-md  p-1 ">
           <div className="flex-1 flex flex-row gap-1">
           <Stats/>
           </div>
           <div className="flex items-center cursor-pointer" onClick={()=> setShowDashBoard(!showDashBoard)}>
-            <FontAwesomeIcon icon={faChevronDown} color="grey" />
+           { showDashBoard && <FontAwesomeIcon icon={faChevronDown} color="grey" />}
+           { !showDashBoard && <FontAwesomeIcon icon={faAngleUp} color="grey" />}
           </div>
         </section>
 
