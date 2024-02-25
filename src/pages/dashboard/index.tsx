@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,39 +10,44 @@ import {
 
 import MyStats from "../../components/dashboard/MyStats";
 import MyResponsiveChart from "../../components/dashboard/MyResponsiveChart";
+import Stats from "../../components/dashboard/Stats";
 
 
 
 export const Dashboard: React.FC = () => {
 
+  const [showDashBoard, setShowDashBoard] = useState(true)
   return (
     <>
-      <main className="rounded-md p-1 flex flex-col items-center h-screen w-98vw overflow-x-hidden">
-        <section className="flex flex-col sm:flex-col md:flex-row lg:flex-row gap-2   h-36 w-11/12 rounded-md  p-1 ">
+      <main className="rounded-md pt-5 p-1 flex flex-col items-center  w-98vw overflow-x-hidden bg-white">
+        <section className="flex flex-col sm:flex-col md:flex-row lg:flex-row gap-2  w-11/12  rounded-md  p-1 ">
           <div className="flex-1 flex flex-row gap-1">
-            <MyStats />
-            <MyStats />
-            <MyStats />
-            <MyStats />
+          <Stats/>
           </div>
-          <div className="flex items-center cursor-pointer">
+          <div className="flex items-center cursor-pointer" onClick={()=> setShowDashBoard(!showDashBoard)}>
             <FontAwesomeIcon icon={faChevronDown} color="grey" />
           </div>
         </section>
 
-        <section className="  w-11/12  h-full pt-5 ">
-          <div className={"mt-0 h-96 w-full"}>
-            <MyResponsiveChart/>
-          </div>
-          <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12 p-1">
-            <div className="flex items-center justify-center h-min bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
-              <p className="text-sm font-extralight">Oct 1, 2022 - Feb 21, 2024</p>
+          {
+            showDashBoard ? 
+            <section className=" mt-10 w-11/12  h-full ">
+            <div className={"mt-0 h-96 w-full"}>
+              <MyResponsiveChart/>
             </div>
-            <div className="flex items-center justify-center h-min bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
-              <p className="text-sm font-extralight">Oct 1, 2022 - Feb 21, 2024</p>
+            <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12 p-1">
+              <div className="flex items-center justify-center h-min bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
+                <p className="text-sm font-extralight">Oct 1, 2022 - Feb 21, 2024</p>
+              </div>
+              <div className="flex items-center justify-center h-min bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
+                <p className="text-sm font-extralight">Oct 1, 2022 - Feb 21, 2024</p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+          : 
+          <></>
+          }
+
       </main>
     </>
   );

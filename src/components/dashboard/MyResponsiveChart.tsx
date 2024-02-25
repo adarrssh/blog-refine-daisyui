@@ -69,8 +69,8 @@ const MyResponsiveChart = () => {
           data={data}
           margin={{
             top: 5,
-            right: 30,
-            left: 10,
+            right: 0,
+            left: 0,
             bottom: 5,
           }}
         >
