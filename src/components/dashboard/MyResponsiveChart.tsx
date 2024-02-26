@@ -26,7 +26,7 @@ const MyResponsiveChart = ({data}:{data:any}) => {
             bottom: 5,
           }}
         >
-          <XAxis dataKey="namex" />
+          <XAxis dataKey="date" />
           <YAxis
           axisLine={false}
           ticks={[0, 20000, 40000]} 

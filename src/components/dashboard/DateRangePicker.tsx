@@ -11,6 +11,7 @@ const dates = [
 ];
 
 const DateRangePicker = () => {
+
   const [dateForLine1, setDateForLine1] = useState({
     start: "Oct 1, 2022",
     end: "Feb 1, 2024",
@@ -21,6 +22,30 @@ const DateRangePicker = () => {
     end: "Feb 1, 2024",
   });
 
+  const selectStartDateForLine1 = (date:any) => {
+    
+    let indexOfStartDate = dates.indexOf(date)
+    let indexOfEndtDate = dates.indexOf(dateForLine1.end)
+    
+    if(indexOfStartDate > indexOfEndtDate){
+        setDateForLine1({ ...dateForLine1, start: date, end: dates[6] })
+    }else{
+        setDateForLine1({ ...dateForLine1, start: date })
+    }
+
+}
+
+  const selectEndDateForLine1 = (date:any) => {
+
+    let indexOfStartDate = dates.indexOf(dateForLine1.start)
+    let indexOfEndtDate = dates.indexOf(date)
+
+    if(indexOfEndtDate >= indexOfStartDate){
+        setDateForLine1({ ...dateForLine1, end: date })
+    }
+
+  }
+
   return (
     <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12 p-1">
       <div className="flex items-center justify-center h-min bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
@@ -28,19 +53,17 @@ const DateRangePicker = () => {
           <p className="text-sm font-extralight cursor-pointer" tabIndex={0}>
             {dateForLine1.start}
             <ul
-              tabIndex={0}
-              className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
+                tabIndex={0}
+                className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
             >
-              {dates.map((date, key) => (
-                <li
-                  key={key}
-                  onClick={() =>
-                    setDateForLine1({ ...dateForLine1, start: date })
-                  }
-                >
-                  <a>{date}</a>
-                </li>
-              ))}
+                {dates.map((date, key) => (
+                    <li
+                        key={key}
+                        onClick={() => selectStartDateForLine1(date)}
+                    >
+                        <a>{date}</a>
+                    </li>
+                ))}
             </ul>
           </p>
         </div>
@@ -58,7 +81,7 @@ const DateRangePicker = () => {
                 <li
                   key={key}
                   onClick={() =>
-                    setDateForLine1({ ...dateForLine1, end: date })
+                    selectEndDateForLine1(date)
                   }
                 >
                   <a>{date}</a>
