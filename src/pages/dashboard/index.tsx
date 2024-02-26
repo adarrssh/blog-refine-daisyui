@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,56 +12,19 @@ import MyStats from "../../components/dashboard/MyStats";
 import MyResponsiveChart from "../../components/dashboard/MyResponsiveChart";
 import Stats from "../../components/dashboard/Stats";
 import DateRangePicker from "../../components/dashboard/DateRangePicker";
+import { dashboardData } from "../../components/dashboard/DashboardData";
 
-const data = [
-  {
-    date: "Oct 2022",
-    uv: 15000,
-    pv: 5000,
-    amt: 2400,
-  },
-  {
-    date: "Dec 2022",
-    uv: 17000,
-    pv: 7000,
-    amt: 2210,
-  },
-  {
-    date: "Feb 2023",
-    uv: 20000,
-    pv: 10000,
-    amt: 2290,
-  },
-  {
-    date: "Apr 2023",
-    uv: 11080,
-    pv: 5080,
-    amt: 2000,
-  },
-  {
-    date: "June 2023",
-    uv: 20590,
-    pv: 19590,
-    amt: 2181,
-  },
-  {
-    date: "Aug 2023",
-    uv: 23090,
-    pv: 13090,
-    amt: 2500,
-  },
-  {
-    date: "Oct 2023",
-    uv: 13090,
-    pv: 10090,
-    amt: 2100,
-  },
-];
+
+
 
 
 export const Dashboard: React.FC = () => {
 
   const [showDashBoard, setShowDashBoard] = useState(true)
+  const [data,setData] = useState(dashboardData)
+
+  
+
 
   return (
     <>
@@ -82,7 +45,7 @@ export const Dashboard: React.FC = () => {
             <div className={"mt-0 h-96 w-full"}>
               <MyResponsiveChart data={data}/>
             </div>
-            <DateRangePicker/>
+            <DateRangePicker data={data} setData={setData}/>
           </section>
           : 
           <></>
@@ -93,37 +56,4 @@ export const Dashboard: React.FC = () => {
   );
 };
 
-{
-  /* <div className="relative flex  items-center pl-1 pr-1 bg-slate-400">
-<FontAwesomeIcon icon={faChevronDown} />
-</div> */
-}
 
-{
-  /* <div className=" basis-1/5 bg-statsHoverbgColor rounded-xl m-1 p-2 flex flex-col">
-<div className="flex items-center">
-  <div className="flex-1 flex flex-row text-statsNumericTextColor">
-    <div className="flex-1">
-      <p>Other online stores</p>
-      <div className="border-b border-dashed border-dashedLineColor"></div>
-    </div>
-    <div>
-      <FontAwesomeIcon
-        icon={faPen}
-        color="#787878"
-        className="ml-auto pr-3"
-      />
-    </div>
-  </div>
-</div>
-
-<div className="flex-1 flex flex-row  pt-4">
-  <p className="text-statsNumericTextColor font-bold text-lg">
-    255,885
-  </p>
-  <p className="pl-2 text-xs pt-1.5 text-statsNumericPercentColor font-light">
-    {<FontAwesomeIcon icon={faCaretUp} />} 9%
-  </p>
-</div>
-</div> */
-}
