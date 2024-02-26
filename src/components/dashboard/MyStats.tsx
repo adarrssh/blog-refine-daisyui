@@ -10,8 +10,8 @@ const MyStats = () => {
   return (
     <>
     {
-      data.map((d)=> 
-      <StatsCard activeStat={activeStat} setActiveStat={setActiveStat} heading={d.heading} numStat = {d.numStat} surge={d.surge}  />
+      data.map((d,key)=> 
+      <StatsCard key={key} activeStat={activeStat} setActiveStat={setActiveStat} heading={d.heading} numStat = {d.numStat} surge={d.surge}  />
       )
     }
     </>

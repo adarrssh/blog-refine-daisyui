@@ -11,12 +11,58 @@ import {
 import MyStats from "../../components/dashboard/MyStats";
 import MyResponsiveChart from "../../components/dashboard/MyResponsiveChart";
 import Stats from "../../components/dashboard/Stats";
+import DateRangePicker from "../../components/dashboard/DateRangePicker";
 
+const data = [
+  {
+    namex: "Oct 2022",
+    uv: 15000,
+    pv: 5000,
+    amt: 2400,
+  },
+  {
+    namex: "Dec 2022",
+    uv: 17000,
+    pv: 7000,
+    amt: 2210,
+  },
+  {
+    namex: "Feb 2023",
+    uv: 20000,
+    pv: 10000,
+    amt: 2290,
+  },
+  {
+    namex: "Apr 2023",
+    uv: 11080,
+    pv: 5080,
+    amt: 2000,
+  },
+  {
+    namex: "June 2023",
+    uv: 20590,
+    pv: 19590,
+    amt: 2181,
+  },
+  {
+    namex: "Aug 2023",
+    uv: 23090,
+    pv: 13090,
+    amt: 2500,
+  },
+  {
+    namex: "Oct 2023",
+    uv: 13090,
+    pv: 10090,
+    amt: 2100,
+  },
+];
 
 
 export const Dashboard: React.FC = () => {
 
   const [showDashBoard, setShowDashBoard] = useState(true)
+
   return (
     <>
       <main className="rounded-md pt-5 p-1 flex flex-col items-center  w-98vw overflow-hidden bg-white">
@@ -34,16 +80,9 @@ export const Dashboard: React.FC = () => {
             showDashBoard ? 
             <section className=" mt-10 w-11/12  h-full ">
             <div className={"mt-0 h-96 w-full"}>
-              <MyResponsiveChart/>
+              <MyResponsiveChart data={data}/>
             </div>
-            <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12 p-1">
-              <div className="flex items-center justify-center h-min bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
-                <p className="text-sm font-extralight">Oct 1, 2022 - Feb 21, 2024</p>
-              </div>
-              <div className="flex items-center justify-center h-min bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
-                <p className="text-sm font-extralight">Oct 1, 2022 - Feb 21, 2024</p>
-              </div>
-            </div>
+            <DateRangePicker/>
           </section>
           : 
           <></>
