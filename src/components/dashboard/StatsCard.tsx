@@ -21,8 +21,8 @@ interface StatsCardProps {
         onClick={() => setActiveStat(heading)}
     >
         <div className="flex flex-row justify-between h-1/3">
-          <div className="">
-            <p>{heading}</p>
+          <div >
+            <p className="">{heading}</p>
             <div className="border-b border-dashed border-dashedLineColor"></div>
           </div>
           <div className={` cursor-pointer dropdown  ${heading === 'Conversion rate' ? 'dropdown-end' : ''}`}>
@@ -36,7 +36,7 @@ interface StatsCardProps {
           </div>
         </div>
         <div className="flex flex-row items-end pt-4 pb-1 h-2/3">
-          <p className="text-statsNumericTextColor font-semibold text-2xl">
+          <p className="text-statsNumericTextColor font-medium text-2xl">
             {numStat}
           </p>
           <p className="pl-2 pb-1 text-xs  text-statsNumericPercentColor font-light">

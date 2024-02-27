@@ -117,7 +117,7 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
   }, [dateForLine2]);
 
   return (
-    <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12  p-1 mr-5">
+    <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12  p-1 mt-5 mb-5 mr-5">
       <div className="flex items-center justify-center h-min w-72 bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
         <div className="bg-line1Color h-1 w-4 mr-2"></div>
         <div className="dropdown dropdown-top ">
