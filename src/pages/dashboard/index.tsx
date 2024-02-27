@@ -1,113 +1,51 @@
-import React, { useMemo } from "react";
-import { CrudFilter, useList } from "@refinedev/core";
-import dayjs from "dayjs";
-import Stats from "../../components/dashboard/Stats";
-import { ResponsiveAreaChart } from "../../components/dashboard/ResponsiveAreaChart";
-import { ResponsiveBarChart } from "../../components/dashboard/ResponsiveBarChart";
-import { TabView } from "../../components/dashboard/TabView";
-import { RecentSales } from "../../components/dashboard/RecentSales";
-import { IChartDatum, TTab } from "../../interfaces";
+import React, { useState } from "react";
 
-const filters: CrudFilter[] = [
-    {
-        field: "start",
-        operator: "eq",
-        value: dayjs()?.subtract(7, "days")?.startOf("day"),
-    },
-    {
-        field: "end",
-        operator: "eq",
-        value: dayjs().startOf("day"),
-    },
-];
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+
+import Stats from "../../components/dashboard/Stats";
+import ResponsiveChart from "../../components/dashboard/ResponsiveChart";
+import DateRangePicker from "../../components/dashboard/DateRangePicker";
+import { originalDashboardData } from "../../components/dashboard/DashboardData";
+import { DashboardData } from "../../interfaces";
+
 
 export const Dashboard: React.FC = () => {
-    const { data: dailyRevenue } = useList<IChartDatum>({
-        resource: "dailyRevenue",
-        filters,
-    });
 
-    const { data: dailyOrders } = useList<IChartDatum>({
-        resource: "dailyOrders",
-        filters,
-    });
+  const [showDashBoard, setShowDashBoard] = useState<boolean>(true);
+  const [data, setData] = useState<DashboardData[]>(originalDashboardData);
 
-    const { data: newCustomers } = useList<IChartDatum>({
-        resource: "newCustomers",
-        filters,
-    });
+  return (
+    <>
+      <main className="rounded-md pt-5 p-1 flex flex-col items-center  w-98vw  bg-white">
+        <section className="flex flex-col sm:flex-col lg:flex-row  gap-2  w-11/12  rounded-md  p-1 ">
+          <div className="flex-1 flex flex-col sm:flex-col lg:flex-row gap-1 ">
+            <Stats />
+          </div>
+          <div
+            className="flex justify-center items-center cursor-pointer  pt-4 lg:pt-0 "
+            onClick={() => setShowDashBoard(!showDashBoard)}
+          >
+            {showDashBoard && (
+              <FontAwesomeIcon icon={faChevronDown} color="grey" />
+            )}
+            {!showDashBoard && (
+              <FontAwesomeIcon icon={faAngleUp} color="grey" />
+            )}
+          </div>
+        </section>
 
-    const useMemoizedChartData = (d: any) => {
-        return useMemo(() => {
-            return d?.data?.data?.map((item: IChartDatum) => ({
-                date: new Intl.DateTimeFormat("en-US", {
-                    month: "short",
-                    year: "numeric",
-                    day: "numeric",
-                }).format(new Date(item.date)),
-                value: item?.value,
-            }));
-        }, [d]);
-    };
-
-    const memoizedRevenueData = useMemoizedChartData(dailyRevenue);
-    const memoizedOrdersData = useMemoizedChartData(dailyOrders);
-    const memoizedNewCustomersData = useMemoizedChartData(newCustomers);
-
-    const tabs: TTab[] = [
-        {
-            id: 1,
-            label: "Daily Revenue",
-            content: (
-                <ResponsiveAreaChart
-                    kpi="Daily revenue"
-                    data={memoizedRevenueData}
-                    colors={{
-                        stroke: "rgb(54, 162, 235)",
-                        fill: "rgba(54, 162, 235, 0.2)",
-                    }}
-                />
-            ),
-        },
-        {
-            id: 2,
-            label: "Daily Orders",
-            content: (
-                <ResponsiveBarChart
-                    kpi="Daily orders"
-                    data={memoizedOrdersData}
-                    colors={{
-                        stroke: "rgb(255, 159, 64)",
-                        fill: "rgba(255, 159, 64, 0.7)",
-                    }}
-                />
-            ),
-        },
-        {
-            id: 3,
-            label: "New Customers",
-            content: (
-                <ResponsiveAreaChart
-                    kpi="New customers"
-                    data={memoizedNewCustomersData}
-                    colors={{
-                        stroke: "rgb(76, 175, 80)",
-                        fill: "rgba(54, 162, 235, 0.2)",
-                    }}
-                />
-            ),
-        },
-    ];
-
-    return (
-        <>
-            <Stats
-                dailyRevenue={dailyRevenue}
-                dailyOrders={dailyOrders}
-                newCustomers={newCustomers}
-            />
-            <TabView tabs={tabs} />
-            <RecentSales />
-        </>
-    );
+        {showDashBoard ? (
+          <section className=" mt-10 w-11/12  h-full ">
+            <div className={"mt-0 h-96 w-full"}>
+              <ResponsiveChart dashboardData={data} />
+            </div>
+            <DateRangePicker dashboardData={data} setData={setData} />
+          </section>
+        ) : (
+          <></>
+        )}
+      </main>
+    </>
+  );
 };
