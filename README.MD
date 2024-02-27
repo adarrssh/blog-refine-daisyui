@@ -7,8 +7,8 @@
 ![Image](./src//image/Screenshot%202024-02-27%20at%209.46.54 PM.png)
 
 
-# About
-- I have used a dummy json data for the dashboard stored inside
+# Approach
+- I have used a dummy json data for the dashboard stored inside the `components/dashboard/DashboardData.tsx`
 
 # features 
 - Option for selecting the date
