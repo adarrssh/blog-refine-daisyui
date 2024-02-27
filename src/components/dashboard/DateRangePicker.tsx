@@ -44,9 +44,9 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
     let indexOfEndtDate = dates.indexOf(dateForLine2.end);
 
     if (indexOfStartDate > indexOfEndtDate) {
-      setDateForLine1({ ...dateForLine2, start: date, end: dates[6] });
+      setDateForLine2({ ...dateForLine2, start: date, end: dates[6] });
     } else {
-      setDateForLine1({ ...dateForLine2, start: date });
+      setDateForLine2({ ...dateForLine2, start: date });
     }
 
   };
@@ -65,14 +65,16 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
     let indexOfEndtDate = dates.indexOf(date);
 
     if (indexOfEndtDate >= indexOfStartDate) {
-      setDateForLine1({ ...dateForLine2, end: date });
+      setDateForLine2({ ...dateForLine2, end: date });
     }
   };
 
 
   const updateDashBoardDataForLine1 = () => {
     let updatedDate = JSON.parse(JSON.stringify(dashboardData));
-    
+    updatedDate.forEach((entry: { uv: any; },index: string | number) => {
+        entry.uv = data[index].uv
+    });
 
     for(let i = 0 ; i<updatedDate.length; i++){
         if(updatedDate[i].date === dateForLine1.start ) break;
@@ -91,7 +93,9 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
 
   const updateDashBoardDataForLine2 = () => {
     let updatedDate = JSON.parse(JSON.stringify(dashboardData));
-    
+    updatedDate.forEach((entry: { pv: any; },index: string | number) => {
+        entry.pv = data[index].pv
+    });    
 
     for(let i = 0 ; i<updatedDate.length; i++){
         if(updatedDate[i].date === dateForLine2.start ) break;
@@ -166,7 +170,7 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
                 <li
                   key={key}
                   onClick={() =>
-                    setDateForLine2({ ...dateForLine2, start: date })
+                    selectStartDateForLine2(date)
                   }
                 >
                   <a>{date}</a>
@@ -189,7 +193,7 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
                 <li
                   key={key}
                   onClick={() =>
-                    setDateForLine2({ ...dateForLine2, end: date })
+                    selectEndDateForLine2(date)
                   }
                 >
                   <a>{date}</a>
