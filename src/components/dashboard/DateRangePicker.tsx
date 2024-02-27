@@ -39,6 +39,18 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
 
   };
 
+  const selectStartDateForLine2 = (date: any) => {
+    let indexOfStartDate = dates.indexOf(date);
+    let indexOfEndtDate = dates.indexOf(dateForLine2.end);
+
+    if (indexOfStartDate > indexOfEndtDate) {
+      setDateForLine1({ ...dateForLine2, start: date, end: dates[6] });
+    } else {
+      setDateForLine1({ ...dateForLine2, start: date });
+    }
+
+  };
+
   const selectEndDateForLine1 = (date: any) => {
     let indexOfStartDate = dates.indexOf(dateForLine1.start);
     let indexOfEndtDate = dates.indexOf(date);
@@ -48,11 +60,17 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
     }
   };
 
-  useEffect(() => {
-    updateDashBoardData();
-  }, [dateForLine1]);
+  const selectEndDateForLine2 = (date: any) => {
+    let indexOfStartDate = dates.indexOf(dateForLine2.start);
+    let indexOfEndtDate = dates.indexOf(date);
 
-  const updateDashBoardData = () => {
+    if (indexOfEndtDate >= indexOfStartDate) {
+      setDateForLine1({ ...dateForLine2, end: date });
+    }
+  };
+
+
+  const updateDashBoardDataForLine1 = () => {
     let updatedDate = JSON.parse(JSON.stringify(dashboardData));
     
 
@@ -66,11 +84,37 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
         updatedDate[i].pv = null
     }
 
+    console.log('line 1 update',updatedDate)
 
     setData([...updatedDate])
   };
 
+  const updateDashBoardDataForLine2 = () => {
+    let updatedDate = JSON.parse(JSON.stringify(dashboardData));
+    
 
+    for(let i = 0 ; i<updatedDate.length; i++){
+        if(updatedDate[i].date === dateForLine2.start ) break;
+        updatedDate[i].uv = null
+    }
+
+    for(let i = updatedDate.length -1  ; i>= 0 ; i--){
+        if(updatedDate[i].date === dateForLine2.end ) break;
+        updatedDate[i].uv = null
+    }
+
+    console.log('line 2 update',updatedDate)
+    setData([...updatedDate])
+  };
+
+
+  useEffect(() => {
+    updateDashBoardDataForLine1();
+  }, [dateForLine1]);
+
+  useEffect(() => {
+    updateDashBoardDataForLine2();
+  }, [dateForLine2]);
 
   return (
     <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12 p-1">
