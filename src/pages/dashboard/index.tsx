@@ -14,46 +14,41 @@ import Stats from "../../components/dashboard/Stats";
 import DateRangePicker from "../../components/dashboard/DateRangePicker";
 import { dashboardData } from "../../components/dashboard/DashboardData";
 
-
-
-
-
 export const Dashboard: React.FC = () => {
-
-  const [showDashBoard, setShowDashBoard] = useState(true)
-  const [data,setData] = useState(dashboardData)
-
-  console.log('inside dashboard',data)
-
+  const [showDashBoard, setShowDashBoard] = useState(true);
+  const [data, setData] = useState(dashboardData);
 
   return (
     <>
-      <main className="rounded-md pt-5 p-1 flex flex-col items-center  w-98vw overflow-hidden bg-white">
-        <section className="flex flex-col sm:flex-col md:flex-row lg:flex-row gap-2  w-11/12  rounded-md  p-1 ">
-          <div className="flex-1 flex flex-row gap-1">
-          <Stats/>
+      <main className="rounded-md pt-5 p-1 flex flex-col items-center  w-98vw  bg-white">
+        <section className="flex flex-col sm:flex-col lg:flex-row  gap-2  w-11/12  rounded-md  p-1 ">
+          <div className="flex-1 flex flex-col sm:flex-col lg:flex-row gap-1 ">
+            <MyStats />
           </div>
-          <div className="flex items-center cursor-pointer" onClick={()=> setShowDashBoard(!showDashBoard)}>
-           { showDashBoard && <FontAwesomeIcon icon={faChevronDown} color="grey" />}
-           { !showDashBoard && <FontAwesomeIcon icon={faAngleUp} color="grey" />}
+          <div
+            className="flex justify-center items-center cursor-pointer  pt-4 lg:pt-0 "
+            onClick={() => setShowDashBoard(!showDashBoard)}
+          >
+            {showDashBoard && (
+              <FontAwesomeIcon icon={faChevronDown} color="grey" />
+            )}
+            {!showDashBoard && (
+              <FontAwesomeIcon icon={faAngleUp} color="grey" />
+            )}
           </div>
         </section>
 
-          {
-            showDashBoard ? 
-            <section className=" mt-10 w-11/12  h-full ">
+        {showDashBoard ? (
+          <section className=" mt-10 w-11/12  h-full ">
             <div className={"mt-0 h-96 w-full"}>
-              <MyResponsiveChart data={data}/>
+              <MyResponsiveChart data={data} />
             </div>
-            <DateRangePicker data={data} setData={setData}/>
+            <DateRangePicker data={data} setData={setData} />
           </section>
-          : 
+        ) : (
           <></>
-          }
-
+        )}
       </main>
     </>
   );
 };
-
-
