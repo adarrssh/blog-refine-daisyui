@@ -121,45 +121,14 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
   }, [dateForLine2]);
 
   return (
-    <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12 p-1">
-      <div className="flex items-center justify-center h-min bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
-        <div className="dropdown dropdown-top">
-          <p className="text-sm font-extralight cursor-pointer" tabIndex={0}>
-            {dateForLine1.start}
-            <ul
-              tabIndex={0}
-              className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
-            >
-              {dates.map((date, key) => (
-                <li key={key} onClick={() => selectStartDateForLine1(date)}>
-                  <a>{date}</a>
-                </li>
-              ))}
-            </ul>
-          </p>
-        </div>
-        <div>
-          <p className="text-sm font-extralight pl-1 pr-1">-</p>
-        </div>
-        <div className="dropdown dropdown-top">
-          <p className="text-sm font-extralight cursor-pointer" tabIndex={0}>
-            {dateForLine1.end}
-            <ul
-              tabIndex={0}
-              className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
-            >
-              {dates.map((date, key) => (
-                <li key={key} onClick={() => selectEndDateForLine1(date)}>
-                  <a>{date}</a>
-                </li>
-              ))}
-            </ul>
-          </p>
-        </div>
-      </div>
+    <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12  p-1 mr-5">
 
-      <div className="flex items-center justify-center h-min bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
+      <div className="flex items-center justify-center h-min w-72 bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
+      <div className="bg-line1Color h-1 w-4 mr-2">
+            
+            </div>
         <div className="dropdown dropdown-top">
+
           <p className="text-sm font-extralight cursor-pointer" tabIndex={0}>
             {dateForLine2.start}
             <ul
@@ -203,6 +172,45 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
           </p>
         </div>
       </div>
+      <div className="flex items-center justify-center h-min w-72 bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
+        <div className="bg-line2Color h-1 w-4 mr-2">
+            
+        </div>
+        <div className="dropdown dropdown-top">
+          <p className="text-sm font-extralight cursor-pointer" tabIndex={0}>
+            {dateForLine1.start}
+            <ul
+              tabIndex={0}
+              className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
+            >
+              {dates.map((date, key) => (
+                <li key={key} onClick={() => selectStartDateForLine1(date)}>
+                  <a>{date}</a>
+                </li>
+              ))}
+            </ul>
+          </p>
+        </div>
+        <div>
+          <p className="text-sm font-extralight pl-1 pr-1">-</p>
+        </div>
+        <div className="dropdown dropdown-top">
+          <p className="text-sm font-extralight cursor-pointer" tabIndex={0}>
+            {dateForLine1.end}
+            <ul
+              tabIndex={0}
+              className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
+            >
+              {dates.map((date, key) => (
+                <li key={key} onClick={() => selectEndDateForLine1(date)}>
+                  <a>{date}</a>
+                </li>
+              ))}
+            </ul>
+          </p>
+        </div>
+      </div>
+
     </div>
   );
 };
