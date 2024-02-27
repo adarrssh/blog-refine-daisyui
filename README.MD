@@ -1,5 +1,5 @@
 
-# Getting Started with Create React App
+# Getting Started 
 
 ![Dashboard Screenshot 1](./src/image/HomePage.png)
 ![Dashboard Screenshot 2](./src/image/EditOption.png)
