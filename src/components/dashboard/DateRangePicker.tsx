@@ -1,21 +1,19 @@
 import  { useEffect, useState } from "react";
-import { dashboardData } from "./DashboardData";
+import { originalDashboardData } from "./DashboardData";
 import { dates } from "./AvailableDates";
+import { DashboardData } from "../../interfaces";
 
-// interface DataItem {
-//   date: string;
-//   pv: number | null; // Allow null
-// }
 
-const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
+const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data: DashboardData[]) => void }> = ({ dashboardData, setData }) => {
+  
   const [dateForLine1, setDateForLine1] = useState({
-    start: "Oct 1, 2022",
-    end: "Oct 1, 2023",
+    start: dates[0],
+    end: dates[dates.length -1] ,
   });
 
   const [dateForLine2, setDateForLine2] = useState({
-    start: "Oct 1, 2022",
-    end: "Oct 1, 2023",
+    start: dates[0],
+    end: dates[dates.length-1],
   });
 
   const selectStartDateForLine1 = (date: any) => {
@@ -59,9 +57,9 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
   };
 
   const updateDashBoardDataForLine1 = () => {
-    let updatedDate = JSON.parse(JSON.stringify(dashboardData));
-    updatedDate.forEach((entry: { uv: any }, index: string | number) => {
-      entry.uv = data[index].uv;
+    let updatedDate = JSON.parse(JSON.stringify(originalDashboardData));
+    updatedDate.forEach((entry: { uv: any }, index:  number) => {
+      entry.uv = dashboardData[index].uv;
     });
 
     for (let i = 0; i < updatedDate.length; i++) {
@@ -79,9 +77,9 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
   };
 
   const updateDashBoardDataForLine2 = () => {
-    let updatedDate = JSON.parse(JSON.stringify(dashboardData));
-    updatedDate.forEach((entry: { pv: any }, index: string | number) => {
-      entry.pv = data[index].pv;
+    let updatedDate = JSON.parse(JSON.stringify(originalDashboardData));
+    updatedDate.forEach((entry: { pv: any }, index: number) => {
+      entry.pv = dashboardData[index].pv;
     });
 
     for (let i = 0; i < updatedDate.length; i++) {

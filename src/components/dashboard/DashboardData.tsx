@@ -1,4 +1,4 @@
-export const dashboardData = [
+export const originalDashboardData = [
     {
       date: "Oct 1, 2022",
       uv: 15000,

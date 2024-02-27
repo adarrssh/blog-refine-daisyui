@@ -9,16 +9,16 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+import { DashboardData } from "../../interfaces";
 
-
-const ResponsiveChart = ({data}:{data:any}) => {
+const ResponsiveChart = ({dashboardData}:{dashboardData:DashboardData[]}) => {
   return (
     <>
       <ResponsiveContainer height={"100%"}>
         <LineChart
           width={500}
           height={300}
-          data={data}
+          data={dashboardData}
           margin={{
             top: 5,
             right: 0,

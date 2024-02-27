@@ -1,6 +1,5 @@
 import {
   faCaretUp,
-  faChartLine,
   faPen,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,11 +7,11 @@ import React from "react";
 import StatsDropDown from "./StatsDropDown";
 
 interface StatsCardProps {
-  activeStat: String;
-  setActiveStat: (heading: String) => void;
-  heading: String;
-  numStat: String;
-  surge: String;
+  activeStat: string;
+  setActiveStat: (heading: string) => void;
+  heading: string;
+  numStat: string;
+  surge: string;
 }
 
 const StatsCard: React.FC<StatsCardProps> = ({
@@ -20,6 +19,7 @@ const StatsCard: React.FC<StatsCardProps> = ({
   setActiveStat,
   heading,
   numStat,
+  surge
 }) => {
   return (
     <>
@@ -53,7 +53,7 @@ const StatsCard: React.FC<StatsCardProps> = ({
             {numStat}
           </p>
           <p className="pl-2 pb-1 text-xs  text-statsNumericPercentColor font-light">
-            {<FontAwesomeIcon icon={faCaretUp} />} {numStat}
+            {<FontAwesomeIcon icon={faCaretUp} />} {surge}
           </p>
         </div>
       </div>

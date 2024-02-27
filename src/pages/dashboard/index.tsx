@@ -6,12 +6,14 @@ import { faChevronDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import Stats from "../../components/dashboard/Stats";
 import ResponsiveChart from "../../components/dashboard/ResponsiveChart";
 import DateRangePicker from "../../components/dashboard/DateRangePicker";
-import { dashboardData } from "../../components/dashboard/DashboardData";
+import { originalDashboardData } from "../../components/dashboard/DashboardData";
+import { DashboardData } from "../../interfaces";
+
 
 export const Dashboard: React.FC = () => {
 
-  const [showDashBoard, setShowDashBoard] = useState(true);
-  const [data, setData] = useState(dashboardData);
+  const [showDashBoard, setShowDashBoard] = useState<boolean>(true);
+  const [data, setData] = useState<DashboardData[]>(originalDashboardData);
 
   return (
     <>
@@ -36,9 +38,9 @@ export const Dashboard: React.FC = () => {
         {showDashBoard ? (
           <section className=" mt-10 w-11/12  h-full ">
             <div className={"mt-0 h-96 w-full"}>
-              <ResponsiveChart data={data} />
+              <ResponsiveChart dashboardData={data} />
             </div>
-            <DateRangePicker data={data} setData={setData} />
+            <DateRangePicker dashboardData={data} setData={setData} />
           </section>
         ) : (
           <></>
