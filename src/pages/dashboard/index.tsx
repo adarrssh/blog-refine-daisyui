@@ -23,7 +23,7 @@ export const Dashboard: React.FC = () => {
   const [showDashBoard, setShowDashBoard] = useState(true)
   const [data,setData] = useState(dashboardData)
 
-  
+  console.log('inside dashboard',data)
 
 
   return (

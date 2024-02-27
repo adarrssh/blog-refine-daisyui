@@ -19,12 +19,12 @@ interface DataItem {
 const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
   const [dateForLine1, setDateForLine1] = useState({
     start: "Oct 1, 2022",
-    end: "Feb 1, 2024",
+    end: "Oct 1, 2023",
   });
 
   const [dateForLine2, setDateForLine2] = useState({
     start: "Oct 1, 2022",
-    end: "Feb 1, 2024",
+    end: "Oct 1, 2023",
   });
 
   const selectStartDateForLine1 = (date: any) => {
