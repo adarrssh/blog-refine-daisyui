@@ -14,7 +14,7 @@
 
 
 # Usage
-- Navigate to the project directory: `cd blog-refine-daisyui`
+- Navigate to the project directory: `cd blog-refine-daisyui && npm i`
 - Run the development server: `npm run dev`
 - Open your web browser and go to [http://localhost:5173/](http://localhost:5173/).
 
