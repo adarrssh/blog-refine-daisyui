@@ -1,16 +1,16 @@
 
 # Getting Started with Create React App
 
-![Dashboard Screenshot 1](./src/image/Screenshot%202024-02-27%20at%209.46.19%20PM.png)
-![Dashboard Screenshot 2](./src/image/Screenshot%202024-02-27%20at%209.46.26%20PM.png)
-![Dashboard Screenshot 3](./src/image/Screenshot%202024-02-27%20at%209.46.54%20PM.png)
+![Dashboard Screenshot 1](./src/image/HomePage.png)
+![Dashboard Screenshot 2](./src/image/EditOption.png)
 
 ## Approach
 - Dummy JSON data is used for the dashboard, stored inside `components/dashboard/DashboardData.tsx`.
 
 ## Features
 - Option for selecting the date
-  ![Date Selection](./src/image/Screenshot%202024-02-28%20at%2012.06.25%20AM.png)
+![Date Selection](./src/image/DatePicker.png)
+![Dashboard Screenshot 3](./src/image/EditedDashboard.png)
 
 
 # Usage
