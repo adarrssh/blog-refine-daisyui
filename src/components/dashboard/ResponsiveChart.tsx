@@ -11,7 +11,7 @@ import {
 
 
 
-const MyResponsiveChart = ({data}:{data:any}) => {
+const ResponsiveChart = ({data}:{data:any}) => {
   return (
     <>
       <ResponsiveContainer height={"100%"}>
@@ -43,4 +43,4 @@ const MyResponsiveChart = ({data}:{data:any}) => {
   );
 };
 
-export default MyResponsiveChart;
+export default ResponsiveChart;

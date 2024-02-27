@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { dashboardData } from "./DashboardData";
+import { dates } from "./AvailableDates";
 
-const dates = [
-  "Oct 1, 2022",
-  "Dec 1, 2022",
-  "Feb 1, 2023",
-  "Apr 1, 2023",
-  "Jun 1, 2023",
-  "Aug 1, 2023",
-  "Oct 1, 2023",
-];
-
-interface DataItem {
-  date: string;
-  pv: number | null; // Allow null
-}
+// interface DataItem {
+//   date: string;
+//   pv: number | null; // Allow null
+// }
 
 const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
   const [dateForLine1, setDateForLine1] = useState({
@@ -83,7 +74,6 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
       updatedDate[i].pv = null;
     }
 
-    console.log("line 1 update", updatedDate);
 
     setData([...updatedDate]);
   };
@@ -104,7 +94,6 @@ const DateRangePicker = ({ data, setData }: { data: any; setData: any }) => {
       updatedDate[i].uv = null;
     }
 
-    console.log("line 2 update", updatedDate);
     setData([...updatedDate]);
   };
 
