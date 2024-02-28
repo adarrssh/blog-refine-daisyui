@@ -65,5 +65,4 @@ export interface  DashboardData {
     date: string;
     uv: number;
     pv: number;
-    amt: number;
   }

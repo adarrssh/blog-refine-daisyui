@@ -113,7 +113,8 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
             tabIndex={0}
           >
             {dateForLine2.start}
-            <ul
+          </p>
+          <ul
               tabIndex={0}
               className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
             >
@@ -123,7 +124,6 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
                 </li>
               ))}
             </ul>
-          </p>
         </div>
         <div>
           <p className="text-sm font-extralight pl-1 pr-5 sm:pr-1 ">-</p>
@@ -134,7 +134,8 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
             tabIndex={0}
           >
             {dateForLine2.end}
-            <ul
+          </p>
+          <ul
               tabIndex={0}
               className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
             >
@@ -144,7 +145,6 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
                 </li>
               ))}
             </ul>
-          </p>
         </div>
       </div>
       <div className="flex items-center justify-center h-min w-72 bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
@@ -155,7 +155,8 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
             tabIndex={0}
           >
             {dateForLine1.start}
-            <ul
+          </p>
+          <ul
               tabIndex={0}
               className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
             >
@@ -165,7 +166,6 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
                 </li>
               ))}
             </ul>
-          </p>
         </div>
         <div>
           <p className="text-sm font-extralight pl-1 pr-5 sm:pr-1 ">-</p>
@@ -176,7 +176,8 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
             tabIndex={0}
           >
             {dateForLine1.end}
-            <ul
+          </p>
+          <ul
               tabIndex={0}
               className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
             >
@@ -186,7 +187,6 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
                 </li>
               ))}
             </ul>
-          </p>
         </div>
       </div>
     </div>
