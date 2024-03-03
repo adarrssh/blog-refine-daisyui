@@ -81,4 +81,15 @@ export interface DateRangePickerProps{
     dashboardData: DashboardData[],
     setData: React.Dispatch<React.SetStateAction<DashboardData[]>>
 }
+
+export interface SingleDateRangePickerProps {
+  colorCode : string,
+  dateForLine: {
+    start: string;
+    end: string;
+  };
+  selectStartdateForLine: (date: string) => void,
+  selectEndDateForLine : (date: string) => void
+}
+
   
