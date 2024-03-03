@@ -6,7 +6,7 @@ import { faChevronDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import Stats from "../../components/dashboard/Stats";
 import ResponsiveChart from "../../components/dashboard/ResponsiveChart";
 import DateRangePicker from "../../components/dashboard/DateRangePicker";
-import { originalDashboardData } from "../../components/dashboard/DashboardData";
+import { originalDashboardData } from "../../Data/DashboardData";
 import { DashboardData } from "../../interfaces";
 
 

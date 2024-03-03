@@ -1,6 +1,6 @@
 import  { useEffect, useState } from "react";
-import { originalDashboardData } from "./DashboardData";
-import { dates } from "./AvailableDates";
+import { originalDashboardData } from "../../Data/DashboardData";
+import { dates } from "../../Data/AvailableDates";
 import { DashboardData } from "../../interfaces";
 
 
