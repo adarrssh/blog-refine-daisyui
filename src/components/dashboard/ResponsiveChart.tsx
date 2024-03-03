@@ -5,13 +5,13 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 
 import { DashboardData } from "../../interfaces";
 
-const ResponsiveChart = ({dashboardData}:{dashboardData:DashboardData[]}) => {
+const ResponsiveChart: React.FC<{ dashboardData: DashboardData[] }> = ({ dashboardData }) => {
+
   return (
     <>
       <ResponsiveContainer height={"100%"}>
@@ -34,8 +34,7 @@ const ResponsiveChart = ({dashboardData}:{dashboardData:DashboardData[]}) => {
         />          
           <CartesianGrid horizontal={true} vertical={false} stroke="#dcdcdc"  />
           <Tooltip />
-          {/* <Legend /> */}
-          <Line type="monotone" dataKey="pv" stroke="#67baec" dot={false} strokeDasharray={"5 5"} />
+=          <Line type="monotone" dataKey="pv" stroke="#67baec" dot={false} strokeDasharray={"5 5"} />
           <Line type="monotone" dataKey="uv" stroke="#abd7f3" dot={false} strokeWidth={"5"} />
         </LineChart>
       </ResponsiveContainer>

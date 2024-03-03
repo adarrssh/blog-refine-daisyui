@@ -1,10 +1,10 @@
 import  { useEffect, useState } from "react";
 import { originalDashboardData } from "../../Data/DashboardData";
 import { dates } from "../../Data/AvailableDates";
-import { DashboardData } from "../../interfaces";
+import { DateRangePickerProps } from "../../interfaces";
 
 
-const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data: DashboardData[]) => void }> = ({ dashboardData, setData }) => {
+const DateRangePicker: React.FC<DateRangePickerProps> = ({ dashboardData, setData }) => {
   
   const [dateForLineUv, setDateForLineUv] = useState({
     start: dates[0],

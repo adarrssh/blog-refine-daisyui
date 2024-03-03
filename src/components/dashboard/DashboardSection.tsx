@@ -1,14 +1,7 @@
 import React from "react";
 import ResponsiveChart from "./ResponsiveChart";
 import DateRangePicker from "./DateRangePicker";
-import { DashboardData } from "../../interfaces";
-
-interface DashboardSectionProps {
-  data: DashboardData[];
-  setData: React.Dispatch<React.SetStateAction<DashboardData[]>>;
-  showDashBoard: boolean;
-}
-
+import { DashboardSectionProps } from "../../interfaces";
 
 const DashboardSection : React.FC<DashboardSectionProps> = ({data,setData,showDashBoard}) => {
   return (
