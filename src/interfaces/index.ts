@@ -77,19 +77,17 @@ export interface DashboardSectionProps {
   showDashBoard: boolean;
 }
 
-export interface DateRangePickerProps{
-    currDashboardData: DashboardData[],
-    setCurrDashboardData: React.Dispatch<React.SetStateAction<DashboardData[]>>
+export interface DateRangePickerProps {
+  currDashboardData: DashboardData[];
+  setCurrDashboardData: React.Dispatch<React.SetStateAction<DashboardData[]>>;
 }
 
 export interface SingleDateRangePickerProps {
-  colorCode : string,
-  dateForLine: {
+  colorCode: string;
+  dateObj: {
     start: string;
     end: string;
   };
-  selectStartdateForLine: (date: string) => void,
-  selectEndDateForLine : (date: string) => void
+  selectStartdateFunc: (date: string) => void;
+  selectEndDateFunc: (date: string) => void;
 }
-
-  

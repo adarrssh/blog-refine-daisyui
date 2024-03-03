@@ -107,8 +107,8 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   return (
     <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12  p-1 mt-5 mb-5 mr-5">
       
-    <SingleDateRangePicker colorCode={"pv"} dateForLine={dateForLinePv} selectStartdateForLine={selectStartdateForLinePv} selectEndDateForLine={selectEnddateForLinePv} />
-    <SingleDateRangePicker colorCode={"uv"} dateForLine={dateForLineUv} selectStartdateForLine={selectStartdateForLineUv} selectEndDateForLine={selectEnddateForLineUv}/>
+    <SingleDateRangePicker colorCode={"pv"} dateObj={dateForLinePv} selectStartdateFunc={selectStartdateForLinePv} selectEndDateFunc={selectEnddateForLinePv} />
+    <SingleDateRangePicker colorCode={"uv"} dateObj={dateForLineUv} selectStartdateFunc={selectStartdateForLineUv} selectEndDateFunc={selectEnddateForLineUv}/>
      
     </div>
   );

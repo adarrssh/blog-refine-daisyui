@@ -4,23 +4,23 @@ import { SingleDateRangePickerProps } from "../../interfaces";
 
 const SingleDateRangePicker: React.FC<SingleDateRangePickerProps> = ({
   colorCode,
-  dateForLine,
-  selectStartdateForLine,
-  selectEndDateForLine,
+  dateObj,
+  selectStartdateFunc,
+  selectEndDateFunc,
 }) => {
 
 /**
  * Handles the click event for selecting a date.
- * @param updateDate A function to update the selected date.
+ * @param updateDateFunc A function to update the selected date.
  * @param date The date to be updated.
  */
 
-  const handleClick = (updateDate: (date: string) => void, date: string) => {
+  const handleClick = (updateDateFunc: (date: string) => void, date: string) => {
     const elem = document.activeElement as HTMLElement;
     if (elem) {
       elem.blur();
     }
-    updateDate(date);
+    updateDateFunc(date);
   };
 
   return (
@@ -34,7 +34,7 @@ const SingleDateRangePicker: React.FC<SingleDateRangePickerProps> = ({
             className="font-extralight cursor-pointer  text-xs sm:text-sm"
             tabIndex={0}
           >
-            {dateForLine.start}
+            {dateObj.start}
           </p>
           <ul
             tabIndex={0}
@@ -43,7 +43,7 @@ const SingleDateRangePicker: React.FC<SingleDateRangePickerProps> = ({
             {dates.map((date, key) => (
               <li
                 key={key}
-                onClick={() => handleClick(selectStartdateForLine, date)}
+                onClick={() => handleClick(selectStartdateFunc, date)}
               >
                 <a>{date}</a>
               </li>
@@ -58,7 +58,7 @@ const SingleDateRangePicker: React.FC<SingleDateRangePickerProps> = ({
             className="font-extralight cursor-pointer  text-xs sm:text-sm"
             tabIndex={0}
           >
-            {dateForLine.end}
+            {dateObj.end}
           </p>
           <ul
             tabIndex={0}
@@ -67,7 +67,7 @@ const SingleDateRangePicker: React.FC<SingleDateRangePickerProps> = ({
             {dates.map((date, key) => (
               <li
                 key={key}
-                onClick={() => handleClick(selectEndDateForLine, date)}
+                onClick={() => handleClick(selectEndDateFunc, date)}
               >
                 <a>{date}</a>
               </li>
