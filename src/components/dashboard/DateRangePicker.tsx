@@ -5,8 +5,8 @@ import { DateRangePickerProps } from "../../interfaces";
 import SingleDateRangePicker from "./SingleDateRangePicker";
 
 const DateRangePicker: React.FC<DateRangePickerProps> = ({
-  dashboardData,
-  setData,
+  currDashboardData,
+  setCurrDashboardData,
 }) => {
   const [dateForLineUv, setDateForLineUv] = useState({
     start: dates[0],
@@ -61,7 +61,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   const updateDashBoardDataForLinePv = () => {
     let updatedDate = JSON.parse(JSON.stringify(originalDashboardData));
     updatedDate.forEach((entry: { uv: any }, index: number) => {
-      entry.uv = dashboardData[index].uv;
+      entry.uv = currDashboardData[index].uv;
     });
 
     for (let i = 0; i < updatedDate.length; i++) {
@@ -74,13 +74,13 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
       updatedDate[i].pv = null;
     }
 
-    setData([...updatedDate]);
+    setCurrDashboardData([...updatedDate]);
   };
 
   const updateDashBoardDataForLineUv = () => {
     let updatedDate = JSON.parse(JSON.stringify(originalDashboardData));
     updatedDate.forEach((entry: { pv: any }, index: number) => {
-      entry.pv = dashboardData[index].pv;
+      entry.pv = currDashboardData[index].pv;
     });
 
     for (let i = 0; i < updatedDate.length; i++) {
@@ -93,7 +93,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
       updatedDate[i].uv = null;
     }
 
-    setData([...updatedDate]);
+    setCurrDashboardData([...updatedDate]);
   };
 
   useEffect(() => {

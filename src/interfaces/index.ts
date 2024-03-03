@@ -72,14 +72,14 @@ export interface StatsProps {
 }
 
 export interface DashboardSectionProps {
-  data: DashboardData[];
-  setData: React.Dispatch<React.SetStateAction<DashboardData[]>>;
+  currDashboardData: DashboardData[];
+  setCurrDashboardData: React.Dispatch<React.SetStateAction<DashboardData[]>>;
   showDashBoard: boolean;
 }
 
 export interface DateRangePickerProps{
-    dashboardData: DashboardData[],
-    setData: React.Dispatch<React.SetStateAction<DashboardData[]>>
+    currDashboardData: DashboardData[],
+    setCurrDashboardData: React.Dispatch<React.SetStateAction<DashboardData[]>>
 }
 
 export interface SingleDateRangePickerProps {

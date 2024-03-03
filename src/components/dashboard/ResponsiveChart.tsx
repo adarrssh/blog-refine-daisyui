@@ -10,7 +10,7 @@ import {
 
 import { DashboardData } from "../../interfaces";
 
-const ResponsiveChart: React.FC<{ dashboardData: DashboardData[] }> = ({ dashboardData }) => {
+const ResponsiveChart: React.FC<{ currDashboardData: DashboardData[] }> = ({ currDashboardData }) => {
 
   return (
     <>
@@ -18,7 +18,7 @@ const ResponsiveChart: React.FC<{ dashboardData: DashboardData[] }> = ({ dashboa
         <LineChart
           width={500}
           height={300}
-          data={dashboardData}
+          data={currDashboardData}
           margin={{
             top: 5,
             right: 0,
