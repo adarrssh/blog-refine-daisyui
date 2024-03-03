@@ -30,8 +30,8 @@ export default {
                 editIconbgColor: '#787878',
                 dashedLineColor: '#d5d5d5',
                 dashboardDatePicker : '#f6f6f7',
-                line1Color:'#69bcee',
-                line2Color: '#e1f3fc'
+                linePvColor:'#69bcee',
+                lineUvColor: '#abd7f3'
             }
         },
     },

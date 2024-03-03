@@ -107,7 +107,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12  p-1 mt-5 mb-5 mr-5">
       
       <div className="flex items-center justify-center h-min w-72 bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
-        <div className="bg-line1Color h-1 w-4 mr-2"></div>
+        <div className="bg-linePvColor h-1 w-4 mr-2"></div>
         <div className="dropdown dropdown-top">
           <p
             className="font-extralight cursor-pointer  text-xs sm:text-sm"
@@ -150,7 +150,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
       </div>
 
       <div className="flex items-center justify-center h-min w-72 bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
-        <div className="bg-line2Color h-1 w-4 mr-2"></div>
+        <div className="bg-lineUvColor h-1 w-4 mr-2"></div>
         <div className="dropdown dropdown-top ">
           <p
             className="font-extralight cursor-pointer text-xs sm:text-sm"
