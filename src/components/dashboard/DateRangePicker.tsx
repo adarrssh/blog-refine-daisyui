@@ -6,53 +6,53 @@ import { DashboardData } from "../../interfaces";
 
 const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data: DashboardData[]) => void }> = ({ dashboardData, setData }) => {
   
-  const [dateForLine1, setDateForLine1] = useState({
+  const [dateForLineUv, setDateForLineUv] = useState({
     start: dates[0],
     end: dates[dates.length -1] ,
   });
 
-  const [dateForLine2, setDateForLine2] = useState({
+  const [dateForLinePv, setDateForLinePv] = useState({
     start: dates[0],
     end: dates[dates.length-1],
   });
 
-  const selectStartDateForLine1 = (date: any) => {
+  const selectStartdateForLineUv = (date: any) => {
     let indexOfStartDate = dates.indexOf(date);
-    let indexOfEndtDate = dates.indexOf(dateForLine1.end);
+    let indexOfEndtDate = dates.indexOf(dateForLineUv.end);
 
     if (indexOfStartDate > indexOfEndtDate) {
-      setDateForLine1({ ...dateForLine1, start: date, end: dates[6] });
+      setDateForLineUv({ ...dateForLineUv, start: date, end: dates[6] });
     } else {
-      setDateForLine1({ ...dateForLine1, start: date });
+      setDateForLineUv({ ...dateForLineUv, start: date });
     }
   };
 
-  const selectStartDateForLine2 = (date: any) => {
+  const selectStartdateForLinePv = (date: any) => {
     let indexOfStartDate = dates.indexOf(date);
-    let indexOfEndtDate = dates.indexOf(dateForLine2.end);
+    let indexOfEndtDate = dates.indexOf(dateForLinePv.end);
 
     if (indexOfStartDate > indexOfEndtDate) {
-      setDateForLine2({ ...dateForLine2, start: date, end: dates[6] });
+      setDateForLinePv({ ...dateForLinePv, start: date, end: dates[6] });
     } else {
-      setDateForLine2({ ...dateForLine2, start: date });
+      setDateForLinePv({ ...dateForLinePv, start: date });
     }
   };
 
-  const selectEndDateForLine1 = (date: any) => {
-    let indexOfStartDate = dates.indexOf(dateForLine1.start);
+  const selectEnddateForLineUv = (date: any) => {
+    let indexOfStartDate = dates.indexOf(dateForLineUv.start);
     let indexOfEndtDate = dates.indexOf(date);
 
     if (indexOfEndtDate >= indexOfStartDate) {
-      setDateForLine1({ ...dateForLine1, end: date });
+      setDateForLineUv({ ...dateForLineUv, end: date });
     }
   };
 
-  const selectEndDateForLine2 = (date: any) => {
-    let indexOfStartDate = dates.indexOf(dateForLine2.start);
+  const selectEnddateForLinePv = (date: any) => {
+    let indexOfStartDate = dates.indexOf(dateForLinePv.start);
     let indexOfEndtDate = dates.indexOf(date);
 
     if (indexOfEndtDate >= indexOfStartDate) {
-      setDateForLine2({ ...dateForLine2, end: date });
+      setDateForLinePv({ ...dateForLinePv, end: date });
     }
   };
 
@@ -63,12 +63,12 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
     });
 
     for (let i = 0; i < updatedDate.length; i++) {
-      if (updatedDate[i].date === dateForLine1.start) break;
+      if (updatedDate[i].date === dateForLineUv.start) break;
       updatedDate[i].pv = null;
     }
 
     for (let i = updatedDate.length - 1; i >= 0; i--) {
-      if (updatedDate[i].date === dateForLine1.end) break;
+      if (updatedDate[i].date === dateForLineUv.end) break;
       updatedDate[i].pv = null;
     }
 
@@ -83,12 +83,12 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
     });
 
     for (let i = 0; i < updatedDate.length; i++) {
-      if (updatedDate[i].date === dateForLine2.start) break;
+      if (updatedDate[i].date === dateForLinePv.start) break;
       updatedDate[i].uv = null;
     }
 
     for (let i = updatedDate.length - 1; i >= 0; i--) {
-      if (updatedDate[i].date === dateForLine2.end) break;
+      if (updatedDate[i].date === dateForLinePv.end) break;
       updatedDate[i].uv = null;
     }
 
@@ -97,14 +97,21 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
 
   useEffect(() => {
     updateDashBoardDataForLine1();
-  }, [dateForLine1]);
+  }, [dateForLineUv]);
 
   useEffect(() => {
     updateDashBoardDataForLine2();
-  }, [dateForLine2]);
+  }, [dateForLinePv]);
 
   return (
     <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12  p-1 mt-5 mb-5 mr-5">
+
+
+
+
+
+
+
       <div className="flex items-center justify-center h-min w-72 bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
         <div className="bg-line1Color h-1 w-4 mr-2"></div>
         <div className="dropdown dropdown-top ">
@@ -112,14 +119,14 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
             className="font-extralight cursor-pointer text-xs sm:text-sm"
             tabIndex={0}
           >
-            {dateForLine2.start}
+            {dateForLinePv.start}
           </p>
           <ul
               tabIndex={0}
               className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
             >
               {dates.map((date, key) => (
-                <li key={key} onClick={() => selectStartDateForLine2(date)}>
+                <li key={key} onClick={() => selectStartdateForLinePv(date)}>
                   <a>{date}</a>
                 </li>
               ))}
@@ -133,20 +140,29 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
             className="font-extralight cursor-pointer  text-xs sm:text-sm"
             tabIndex={0}
           >
-            {dateForLine2.end}
+            {dateForLinePv.end}
           </p>
           <ul
               tabIndex={0}
               className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
             >
               {dates.map((date, key) => (
-                <li key={key} onClick={() => selectEndDateForLine2(date)}>
+                <li key={key} onClick={() => selectEnddateForLinePv(date)}>
                   <a>{date}</a>
                 </li>
               ))}
             </ul>
         </div>
       </div>
+
+
+
+
+
+
+
+
+
       <div className="flex items-center justify-center h-min w-72 bg-dashboardDatePicker pl-10 pr-10 pt-2 pb-2">
         <div className="bg-line2Color h-1 w-4 mr-2"></div>
         <div className="dropdown dropdown-top">
@@ -154,14 +170,14 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
             className="font-extralight cursor-pointer  text-xs sm:text-sm"
             tabIndex={0}
           >
-            {dateForLine1.start}
+            {dateForLineUv.start}
           </p>
           <ul
               tabIndex={0}
               className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
             >
               {dates.map((date, key) => (
-                <li key={key} onClick={() => selectStartDateForLine1(date)}>
+                <li key={key} onClick={() => selectStartdateForLineUv(date)}>
                   <a>{date}</a>
                 </li>
               ))}
@@ -175,14 +191,14 @@ const DateRangePicker: React.FC<{ dashboardData: DashboardData[]; setData: (data
             className="font-extralight cursor-pointer  text-xs sm:text-sm"
             tabIndex={0}
           >
-            {dateForLine1.end}
+            {dateForLineUv.end}
           </p>
           <ul
               tabIndex={0}
               className="dropdown-content  z-[1] menu p-2 shadow  rounded-box w-52  bg-dashboardDatePicker"
             >
               {dates.map((date, key) => (
-                <li key={key} onClick={() => selectEndDateForLine1(date)}>
+                <li key={key} onClick={() => selectEnddateForLineUv(date)}>
                   <a>{date}</a>
                 </li>
               ))}
