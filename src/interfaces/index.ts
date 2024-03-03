@@ -66,3 +66,9 @@ export interface  DashboardData {
     uv: number;
     pv: number;
   }
+
+export interface StatsProps {
+    showDashBoard: boolean;
+    setShowDashBoard: (value: boolean) => void;
+  }
+  
