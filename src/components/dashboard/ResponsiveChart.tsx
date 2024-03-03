@@ -34,8 +34,8 @@ const ResponsiveChart: React.FC<{ dashboardData: DashboardData[] }> = ({ dashboa
         />          
           <CartesianGrid horizontal={true} vertical={false} stroke="#dcdcdc"  />
           <Tooltip />
-=          <Line type="monotone" dataKey="pv" stroke="#67baec" dot={false} strokeDasharray={"5 5"} />
-          <Line type="monotone" dataKey="uv" stroke="#abd7f3" dot={false} strokeWidth={"5"} />
+          <Line type="monotone" dataKey="pv" stroke="#67baec" dot={false} strokeWidth={"5"} />
+          <Line type="monotone" dataKey="uv" stroke="#abd7f3" dot={false} strokeDasharray={"5 5"} />
         </LineChart>
       </ResponsiveContainer>
     </>
