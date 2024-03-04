@@ -17,8 +17,8 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     start: dates[0],
     end: dates[dates.length - 1],
   });
-
-  const selectStartdateForLineUv = (date: any) => {
+  
+  const selectStartdateForLineUv = (date: string) => {
     let indexOfStartDate = dates.indexOf(date);
     let indexOfEndtDate = dates.indexOf(dateForLineUv.end);
 
@@ -29,7 +29,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     }
   };
 
-  const selectStartdateForLinePv = (date: any) => {
+  const selectStartdateForLinePv = (date: string) => {
     let indexOfStartDate = dates.indexOf(date);
     let indexOfEndtDate = dates.indexOf(dateForLinePv.end);
 
@@ -40,7 +40,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     }
   };
 
-  const selectEnddateForLineUv = (date: any) => {
+  const selectEnddateForLineUv = (date: string) => {
     let indexOfStartDate = dates.indexOf(dateForLineUv.start);
     let indexOfEndtDate = dates.indexOf(date);
 
@@ -49,7 +49,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     }
   };
 
-  const selectEnddateForLinePv = (date: any) => {
+  const selectEnddateForLinePv = (date: string) => {
     let indexOfStartDate = dates.indexOf(dateForLinePv.start);
     let indexOfEndtDate = dates.indexOf(date);
 
@@ -60,7 +60,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
 
   const updateDashBoardDataForLinePv = () => {
     let updatedDate = JSON.parse(JSON.stringify(originalDashboardData));
-    updatedDate.forEach((entry: { uv: any }, index: number) => {
+    updatedDate.forEach((entry: { uv:  number | null }, index: number) => {
       entry.uv = currDashboardData[index].uv;
     });
 
@@ -79,7 +79,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
 
   const updateDashBoardDataForLineUv = () => {
     let updatedDate = JSON.parse(JSON.stringify(originalDashboardData));
-    updatedDate.forEach((entry: { pv: any }, index: number) => {
+    updatedDate.forEach((entry: { pv: number | null }, index: number) => {
       entry.pv = currDashboardData[index].pv;
     });
 
