@@ -23,7 +23,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     let indexOfEndtDate = dates.indexOf(dateForLineUv.end);
 
     if (indexOfStartDate > indexOfEndtDate) {
-      setDateForLineUv({ ...dateForLineUv, start: date, end: dates[6] });
+      setDateForLineUv({ ...dateForLineUv, start: date, end: dates[dates.length-1] });
     } else {
       setDateForLineUv({ ...dateForLineUv, start: date });
     }
@@ -34,7 +34,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     let indexOfEndtDate = dates.indexOf(dateForLinePv.end);
 
     if (indexOfStartDate > indexOfEndtDate) {
-      setDateForLinePv({ ...dateForLinePv, start: date, end: dates[6] });
+      setDateForLinePv({ ...dateForLinePv, start: date, end: dates[dates.length-1] });
     } else {
       setDateForLinePv({ ...dateForLinePv, start: date });
     }
