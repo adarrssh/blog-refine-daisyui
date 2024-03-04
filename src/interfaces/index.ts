@@ -88,6 +88,6 @@ export interface SingleDateRangePickerProps {
     start: string;
     end: string;
   };
-  selectStartdateFunc: (date: string) => void;
-  selectEndDateFunc: (date: string) => void;
+  updateStartdateFunc: (date: string) => void;
+  updateEndDateFunc: (date: string) => void;
 }

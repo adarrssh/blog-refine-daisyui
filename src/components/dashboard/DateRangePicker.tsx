@@ -18,7 +18,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     end: dates[dates.length - 1],
   });
   
-  const selectStartdateForLineUv = (date: string) => {
+  const updateStartdateForLineUv = (date: string) => {
     let indexOfStartDate = dates.indexOf(date);
     let indexOfEndtDate = dates.indexOf(dateForLineUv.end);
 
@@ -29,7 +29,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     }
   };
 
-  const selectStartdateForLinePv = (date: string) => {
+  const updateStartdateForLinePv = (date: string) => {
     let indexOfStartDate = dates.indexOf(date);
     let indexOfEndtDate = dates.indexOf(dateForLinePv.end);
 
@@ -40,7 +40,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     }
   };
 
-  const selectEnddateForLineUv = (date: string) => {
+  const updateEnddateForLineUv = (date: string) => {
     let indexOfStartDate = dates.indexOf(dateForLineUv.start);
     let indexOfEndtDate = dates.indexOf(date);
 
@@ -49,7 +49,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     }
   };
 
-  const selectEnddateForLinePv = (date: string) => {
+  const updateEnddateForLinePv = (date: string) => {
     let indexOfStartDate = dates.indexOf(dateForLinePv.start);
     let indexOfEndtDate = dates.indexOf(date);
 
@@ -107,8 +107,8 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   return (
     <div className="flex flex-row justify-end gap-4 pr-5 w-full h-12  p-1 mt-5 mb-5 mr-5">
       
-    <SingleDateRangePicker colorCode={"pv"} dateObj={dateForLinePv} selectStartdateFunc={selectStartdateForLinePv} selectEndDateFunc={selectEnddateForLinePv} />
-    <SingleDateRangePicker colorCode={"uv"} dateObj={dateForLineUv} selectStartdateFunc={selectStartdateForLineUv} selectEndDateFunc={selectEnddateForLineUv}/>
+    <SingleDateRangePicker colorCode={"pv"} dateObj={dateForLinePv} updateStartdateFunc={updateStartdateForLinePv} updateEndDateFunc={updateEnddateForLinePv} />
+    <SingleDateRangePicker colorCode={"uv"} dateObj={dateForLineUv} updateStartdateFunc={updateStartdateForLineUv} updateEndDateFunc={updateEnddateForLineUv}/>
      
     </div>
   );

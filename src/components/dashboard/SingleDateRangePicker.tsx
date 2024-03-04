@@ -5,8 +5,8 @@ import { SingleDateRangePickerProps } from "../../interfaces";
 const SingleDateRangePicker: React.FC<SingleDateRangePickerProps> = ({
   colorCode,
   dateObj,
-  selectStartdateFunc,
-  selectEndDateFunc,
+  updateStartdateFunc,
+  updateEndDateFunc,
 }) => {
 
 /**
@@ -43,7 +43,7 @@ const SingleDateRangePicker: React.FC<SingleDateRangePickerProps> = ({
             {dates.map((date, key) => (
               <li
                 key={key}
-                onClick={() => handleClick(selectStartdateFunc, date)}
+                onClick={() => handleClick(updateStartdateFunc, date)}
               >
                 <a>{date}</a>
               </li>
@@ -67,7 +67,7 @@ const SingleDateRangePicker: React.FC<SingleDateRangePickerProps> = ({
             {dates.map((date, key) => (
               <li
                 key={key}
-                onClick={() => handleClick(selectEndDateFunc, date)}
+                onClick={() => handleClick(updateEndDateFunc, date)}
               >
                 <a>{date}</a>
               </li>
