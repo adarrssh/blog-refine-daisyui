@@ -22,6 +22,9 @@ export default {
             sans: ['Roboto', 'sans-serif']
         },
         extend: {
+            width: {
+                '400': '400px', 
+            },
             colors:{
                 statsHeadingTextColor : '#575757',
                 statsHoverbgColor : '#f1f1f1',

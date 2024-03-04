@@ -1,7 +1,4 @@
-import {
-  faCaretUp,
-  faPen,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCaretUp, faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import StatsDropDown from "./StatsDropDown";
@@ -19,7 +16,7 @@ const StatsCard: React.FC<StatsCardProps> = ({
   setActiveStat,
   heading,
   numStat,
-  surge
+  surge,
 }) => {
   return (
     <>
@@ -30,8 +27,19 @@ const StatsCard: React.FC<StatsCardProps> = ({
         onClick={() => setActiveStat(heading)}
       >
         <div className="flex flex-row justify-between h-1/3">
-          <div>
-            <p className="">{heading}</p>
+          <div className="dropdown dropdown-hover">
+            <p tabIndex={0}>{heading}</p>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box  w-400"
+            >
+              <li>
+                <a className="font-semibold">Online store sessions</a>
+              </li>
+              <li>
+                <a>Your online store’s traffic volume, shown in sessions.</a>
+              </li>
+            </ul>
             <div className="border-b border-dashed border-dashedLineColor"></div>
           </div>
           <div
